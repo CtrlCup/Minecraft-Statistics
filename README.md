@@ -10,4 +10,3 @@ This directory contains the web interface for the Statistics project.
 
 ## Getting Started
 
-(Add instructions on how to run the project here)

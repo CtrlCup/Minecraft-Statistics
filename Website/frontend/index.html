@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Website</title>
+    
+    <!-- Global Styles (Colors) -->
+    <link rel="stylesheet" href="css/colors.css">
+    
+    <!-- Main Styles (Optional, you can add more styles here) -->
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: var(--bg-color-main);
+            color: var(--text-color-main);
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color-white);
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="welcome-message">Loading...</h1>
+    </header>
+
+    <main>
+        <p id="description">...</p>
+    </main>
+
+    <!-- Load Config First -->
+    <script src="js/config.js"></script>
+    
+    <!-- Main Logic -->
+    <script>
+        // Simple script to demonstrate loading language based on config
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Current Language:', config.language);
+            
+            fetch(`languages/${config.language}.json`)
+                .then(response => response.json())
+                .then(lang => {
+                    document.getElementById('welcome-message').textContent = lang.welcome_message;
+                    document.getElementById('description').textContent = lang.description;
+                })
+                .catch(error => console.error('Error loading language file:', error));
+        });
+    </script>
+</body>
+</html>

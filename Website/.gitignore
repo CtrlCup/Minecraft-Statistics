@@ -1,0 +1,11 @@
+# Ignore the local config file
+frontend/js/config.js
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
